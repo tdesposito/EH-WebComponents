@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EH-WebComponents &lt;eh-loading-modal&gt Demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <script src="../src/eh-loading-modal.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <h1>&lt;eh-loading-modal&gt Demo</h1>
+    </header>
+    <main>
+      <section>
+        <button onClick="doDemo()">Show Loading Modal</button>
+        <eh-loading-modal id="loading-modal">
+          <h2>Slotted Content</h2>
+          <p>
+            Anything you put inside the opening and closing &lt;eh-loading-modal&gt; tags will be centered on the screen.
+          </p>
+          <p>
+            <small>This modal will close 10 seconds after you opened it, for this demo only.</small>
+          </p>
+        </eh-confirm-modal>
+      </section>
+    </main>
+    <script type="text/javascript">
+      function doDemo() {
+        const node = document.getElementById('loading-modal')
+        node.show()
+        setTimeout(()=> {node.hide()}, 10000)
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+// This file is part of EH-WebComponents, Copyright (C) Todd D. Esposito 2021.
+// Distributed under the MIT License (see https://opensource.org/licenses/MIT).
+
+window.customElements.define('eh-{{!!TagName!!}}',
+  class Eh{{!!ClassName!!}} extends HTMLElement {
+    constructor () {
+      super()
+      this.attachShadow({mode: 'open'})
+      this.shadowRoot.innerHTML = `<!-- ##HTML -->
+        <style>
+        </style>
+        <!-- ##/HTML -->`
+
+      // create internal references here
+      // i.e. this.button = this.shadowRoot.querySelector("#blah")
+
+      // bind callbacks here
+      // i.e. this.onClick = this.onClick.bind(this)
+    }
+
+    attributeChangedCallback(name, oldVal, newVal) {
+      switch (name) {
+        case '':
+          break
+      }
+    }
+
+    static get observedAttributes() {
+      return [""]
+    }
+
+    connectedCallback () {
+      // add event listeners here
+      // i.e. this.button.addEventListener('click', this.onClick)
+
+      // adjust internal nodes based on attributes here
+      // i.e. if (this.disabled) { this.button.disabled = true }
+    }
+
+    disconnectedCallback () {
+      // remove event listeners here
+      // i.e. this.button.removeEventListener('click', this.onClick)
+    }
+  }
+)

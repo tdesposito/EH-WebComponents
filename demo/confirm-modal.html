@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EH-WebComponents &lt;eh-confirm-modal&gt; Demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <script src="../src/eh-confirm-modal.js" charset="utf-8"></script>
+    <style media="screen">
+    #confirm-modal_styled {
+      --mask-background-color: 200 0 0;
+      --box-top: 50px;
+      --cancel-background-color: 200 0 0;
+    }
+    #confirm-modal_styled pre {
+      font-family: monospace;
+      text-align: left;
+    }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>EH-WebComponents &lt;eh-confirm-modal&gt; Demo</h1>
+    </header>
+    <main>
+      <section>
+        <button onClick="doDemo('confirm-modal')">Default Confirm Modal</button>
+      </section>
+      <section>
+        <button onClick="doDemo('confirm-modal_slotted')">Customized Confirm Modal</button>
+      </section>
+      <section>
+        <button onClick="doDemo('confirm-modal_styled')">Styled Confirm Modal</button>
+      </section>
+      <eh-confirm-modal id="confirm-modal" onConfirm="alert('Default Confirmed')"></eh-confirm-modal>
+      <eh-confirm-modal id="confirm-modal_slotted" onConfirm="alert('Customized Confirmed')">
+        <span slot="title">Customized Confirm Modal</span>
+        <p>
+          Anything you add inside the &lt;eh-confirm-modal&gt; start and end
+          tags ends up in the "content" area of the modal.
+        </p>
+        <span slot="confirm-text">Yup, Configurable</span>
+        <span slot="cancel-text">This Too</span>
+      </eh-confirm-modal>
+      <eh-confirm-modal id="confirm-modal_styled" onConfirm="alert('Styled Confirmed')">
+        <span slot="title">Styled Confirm Modal</span>
+        <p>
+          This &lt;eh-confirm-modal&gt; has been styled by setting CSS custom
+          properties for the element:
+          <pre>
+            #confirm-modal_styled {
+              --mask-background-color: 200 0 0;
+              --box-top: 50px;
+              --cancel-background-color: 200 0 0;
+            }
+            #confirm-modal_styled pre {
+              font-family: monospace;
+              text-align: left;
+            }
+          </pre>
+        </p>
+        <p>
+          You can use regular CSS selectors to target slotted (child) elements.
+        </p>
+      </eh-confirm-modal>
+    </main>
+    <script>
+      function doDemo(id) {
+        document.getElementById(id).show()
+      }
+    </script>
+  </body>
+</html>

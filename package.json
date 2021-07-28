@@ -1,0 +1,23 @@
+{
+  "name": "eh-webcomponents",
+  "version": "1.0.0",
+  "description": "A collection of Web Components",
+  "main": "index.js",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "bundle": "node scripts/bundle.js",
+    "newcomp": "node scripts/newcomp.js",
+    "server": "http-server . -o /demo",
+    "dist": "node scripts/dist.js",
+    "make": "npm run build && npm run bundle && npm run dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Todd D. Esposito",
+  "license": "MIT",
+  "devDependencies": {
+    "glob": "^7.1.7",
+    "html-minifier": "^4.0.0",
+    "http-server": "^0.12.3",
+    "terser": "^5.7.1"
+  }
+}
