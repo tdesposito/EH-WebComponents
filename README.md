@@ -65,7 +65,7 @@ __*NOTE:* All colors are expressed as space-separated RGB values!__
 
 ## Demos
 
-TBD.
+[See them in action](https://tdesposito.github.io/EH-WebComponents/)
 
 ## Contributing
 I welcome comments, suggestions, and requests for components. Or build your own
