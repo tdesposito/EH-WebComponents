@@ -9,6 +9,5 @@ glob("+(build|bundle)/*.min.js", (err, files) => {
     console.log(`copy ${f} to dist/`)
     var target = f.replace('build/', 'dist/').replace('bundle/', 'dist/')
     fs.copyFileSync(f, target)
-    fs.copyFileSync(f, target.replace(`-${config.version}`, ''))
   })
 })
