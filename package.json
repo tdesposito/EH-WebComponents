@@ -7,7 +7,7 @@
     "build": "node scripts/build.js",
     "bundle": "node scripts/bundle.js",
     "newcomp": "node scripts/newcomp.js",
-    "server": "http-server . -o /demo",
+    "server": "http-server . -o /docs",
     "dist": "node scripts/dist.js",
     "make": "npm run build && npm run bundle && npm run dist",
     "test": "echo \"Error: no test specified\" && exit 1"
