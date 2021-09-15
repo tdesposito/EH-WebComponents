@@ -7,7 +7,7 @@ window.customElements.define('eh-loading-modal',
       super()
       this.attachShadow({ mode: "open" })
 
-      const visible = this.getAttribute('visible') || ""
+      const visible = this.hasAttribute('visible') ? "visible" : ""
       this.shadowRoot.innerHTML = `<!-- ##HTML -->
         <style>
           .wrapper {
