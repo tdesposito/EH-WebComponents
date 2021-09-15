@@ -6,6 +6,7 @@
     <title>EH-WebComponents &lt;eh-loading-modal&gt Demo</title>
     <link rel="stylesheet" href="demo.css">
     <script src="https://cdn.jsdelivr.net/gh/tdesposito/eh-webcomponents/dist/eh-loading-modal.min.js"></script>
+    <script src="demo.js"></script>
   </head>
   <body>
     <header>
@@ -14,7 +15,7 @@
     <main>
       <section>
         <button onClick="doDemo()">Show Loading Modal</button>
-        <eh-loading-modal id="loading-modal">
+        <eh-loading-modal id="loading-modal" class="from">
           <h2>Slotted Content</h2>
           <p>
             Anything you put inside the opening and closing &lt;eh-loading-modal&gt; tags will be centered on the screen.
@@ -22,10 +23,12 @@
           <p>
             <small>This modal will close 10 seconds after you opened it, for this demo only.</small>
           </p>
-        </eh-confirm-modal>
+        </eh-loading-modal>
+        <pre class="to"></pre>
       </section>
     </main>
     <script type="text/javascript">
+      showSources()
       function doDemo() {
         const node = document.getElementById('loading-modal')
         node.show()
