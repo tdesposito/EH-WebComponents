@@ -71,8 +71,17 @@ button:hover {
 section > button {
   display: inline-block;
 }
-section > pre {
+section > pre, .col > pre {
   text-align: left;
   padding: 0.5em;
   border: 1px solid rgba(96 66 233 / 30%);
+}
+
+section.row {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: 1fr 1fr;
+}
+section > .col {
+  grid-column: auto;
 }
