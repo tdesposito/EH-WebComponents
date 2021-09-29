@@ -21,7 +21,7 @@
             Anything you put inside the opening and closing &lt;eh-loading-modal&gt; tags will be centered on the screen.
           </p>
           <p>
-            <small>This modal will close 10 seconds after you opened it, for this demo only.</small>
+            <small>This modal will close 5 seconds after you opened it, for this demo only.</small>
           </p>
         </eh-loading-modal>
         <pre class="to"></pre>
@@ -32,7 +32,7 @@
       function doDemo() {
         const node = document.getElementById('loading-modal')
         node.show()
-        setTimeout(()=> {node.hide()}, 10000)
+        setTimeout(()=> {node.hide()}, 5000)
       }
     </script>
   </body>

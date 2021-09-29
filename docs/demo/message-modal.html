@@ -6,8 +6,7 @@
     <title>EH-WebComponents &lt;eh-message-modal&gt; Demo</title>
     <link rel="stylesheet" href="demo.css">
     <script src="https://cdn.jsdelivr.net/gh/tdesposito/eh-webcomponents/dist/eh-message-modal.min.js"></script>
-    <style media="screen">
-    </style>
+    <script src="demo.js"></script>
   </head>
   <body>
     <header>
@@ -16,24 +15,26 @@
     <main>
       <section>
         <button onClick="doDemo('default')">Default Message Modal</button>
+        <eh-message-modal id="default"></eh-message-modal>
       </section>
       <section>
         <button onClick="doDemo('custom')">Customized Message Modal</button>
+        <eh-message-modal id="custom" title="Message Modal Demo" class="from">
+          <p>
+            Anything you add inside the &lt;eh-message-modal&gt; start and end
+            tags ends up in the content area of the modal.
+          </p>
+          <p>
+            You can change the text in the button by putting your text into the
+            "button-text" slot.
+          </p>
+          <span slot="button-text">Got It!</span>
+        </eh-message-modal>
+        <pre class="to"></pre>
       </section>
-      <eh-message-modal id="default"></eh-message-modal>
-      <eh-message-modal id="custom" title="Message Modal Demo">
-        <p>
-          Anything you add inside the &lt;eh-message-modal&gt; start and end
-          tags ends up in the content area of the modal.
-        </p>
-        <p>
-          You can change the text in the button by putting your text into the
-          "button-text" slot.
-        </p>
-        <span slot="button-text">Got It!</span>
-      </eh-message-modal>
     </main>
     <script>
+      showSources()
       function doDemo(id) {
         document.getElementById(id).show()
       }
