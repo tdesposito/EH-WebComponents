@@ -51,13 +51,6 @@ window.customElements.define('eh-toggle',
           input:checked + .toggle {
             background-color: rgb(var(--toggle_checked-background-color, 0 178 0));
           }
-          input:disabled + .toggle {
-            background-color: rgb(var(--toggle_disabled-background-color, 100 100 100));
-            cursor: auto;
-          }
-          input:disabled + .toggle:before {
-            content: var(--toggle_disabled-content, "");
-          }
           input:checked + .toggle:before {
             content: var(--toggle_checked-content, "");
             transform: translateX(calc(
@@ -65,6 +58,13 @@ window.customElements.define('eh-toggle',
               - var(--button-size, calc(var(--toggle-height, 28px) - 6px))
               - (var(--toggle-height, 28px) - var(--button-size, calc(var(--toggle-height, 28px) - 6px)))
             ));
+          }
+          input:disabled + .toggle {
+            background-color: rgb(var(--toggle_disabled-background-color, 100 100 100));
+            cursor: auto;
+          }
+          input:disabled + .toggle:before {
+            content: var(--toggle_disabled-content, "");
           }
         </style>
         <label id='wrapper'>
