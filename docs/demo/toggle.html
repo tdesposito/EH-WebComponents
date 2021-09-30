@@ -95,13 +95,15 @@
         <div class="col">
           <h2>Handle the "change" Event</h2>
           <pre>
+&lt;eh-toggle rounded id="capturechange" onChange="ToggleChanged()"&gt;&lt;/eh-toggle&gt;
+-- and/or --
 document.querySelector('#capturechange').addEventListener('change',
   (e) => { ... }
           </pre>
           <p>
             Toggle me: <eh-toggle rounded id="capturechange"></eh-toggle>
           </p>
-          <p id="clicked"></p>
+          <p id="clicked">&nbsp;</p>
         </div>
         <div class="col">
           <h2>Change the Button Content</h2>
@@ -122,7 +124,7 @@ document.querySelector('#capturechange').addEventListener('change',
             <eh-toggle disabled style='
             --toggle_disabled-content: "\2716";
             '></eh-toggle>
-            <eh-toggle disabled rounded style='
+            <eh-toggle disabled rounded checked style='
             --toggle_disabled-content: "\2716";
             '></eh-toggle>
           </p>
