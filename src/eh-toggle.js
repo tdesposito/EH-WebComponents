@@ -80,6 +80,16 @@ window.customElements.define('eh-toggle',
     }
     set checked(v) {
       this.chkbox.checked = Boolean(v)
+      if (this.getAttribute("onChange")) {
+        let fn
+        try {
+          fn = Function(this.getAttribute("onChange"))
+          fn()
+        } catch (error) {
+          console.error("eh-toggle: can't execute the 'onChange' routine.")
+        }
+      }
+      this.dispatchEvent(new Event("change", {bubbles: true}))
     }
     get disabled() {
       return this.chkbox.disabled
@@ -97,7 +107,6 @@ window.customElements.define('eh-toggle',
     }
     onClick(evt) {
       this.checked = evt.currentTarget.checked
-      this.dispatchEvent(new Event("change", {bubbles: true}))
     }
     attributeChangedCallback(name, oldVal, newVal) {
       switch (name) {
