@@ -3,8 +3,9 @@
   --button-rgb: 96 66 233;
 }
 body {
-  font-family: sans-serif;
   text-align: center;
+  font-family: sans-serif;
+  font-size: 16px;
   margin: 3rem;
 }
 article {
