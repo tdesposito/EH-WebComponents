@@ -27,12 +27,11 @@ You can copy them into your project, then serve them from there:
 <script src="/static/eh-loading-modal.min.js"></script>
 ```
 
-## Modals - Components which take over the screen
+## Components Available
 * [`<eh-confirm-modal>`](docs/confirm-modal.md): A full-screen modal confirm dialog box.
 * [`<eh-loading-modal>`](docs/loading-modal.md): A full-screen "loading" modal pop-over.
 * [`<eh-message-modal>`](docs/message-modal.md): A full-screen modal showing a message.
-
-## Input Elements - Components which augment user input
+* [`<eh-notificaiton>`](docs/notification.md): Displays one or more notifications.
 * [`<eh-toggle>`](docs/toggle.md): A single toggle switch.
 
 ## Styling Components

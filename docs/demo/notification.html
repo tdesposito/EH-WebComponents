@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EH-WebComponents &lt;eh-notification&gt; Demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <!-- <script src="https://cdn.jsdelivr.net/gh/tdesposito/eh-webcomponents/dist/eh-notification.min.js"></script> -->
+    <script src="../src/eh-notification.js"></script>
+    <script src="./demo.js" charset="utf-8"></script>
+    <style media="screen">
+      :root {
+        --notification-margin: 10px;
+        --notification-font-size: 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>&lt;eh-notification&gt; Demo</h1>
+    </header>
+    <main>
+      <section class="row">
+        <div class="col">
+          <h2>Notification Configuration</h2>
+          <fieldset name="position">
+            <legend>Position</legend>
+            <label>
+              <input type="radio" name="position" value="left">Left
+            </label>
+            <label>
+              <input type="radio" name="position" value="center">Center
+            </label>
+            <label>
+              <input type="radio" name="position" value="" checked>Right (default)
+            </label>
+          </fieldset>
+          <fieldset name="animation">
+            <legend>Animation</legend>
+            <label>
+              <input type="radio" name="animation" value="" checked>Pop In (default)
+            </label>
+            <label>
+              <input type="radio" name="animation" value="slide">Slide In
+            </label>
+            <label>
+              <input type="radio" name="animation" value="fade">Fade In
+            </label>
+          </fieldset>
+          <fieldset name="closing">
+            <legend>Closing Behaviour</legend>
+            <label>
+              <input type="checkbox" name="canclose">Enable Click-To-Close
+            </label>
+            <br><br>
+            <label>
+              Auto-Close Time:
+              <input type="number" name="autoclose" value="0" min="0" step="250"> (ms)
+            </label>
+          </fieldset>
+          <fieldset name="result">
+            <legend>HTML</legend>
+            <div id="demo">
+              <eh-notification class="from"></eh-notification>
+            </div>
+            <pre class="to"></pre>
+          </fieldset>
+        </div>
+        <div class="col">
+          <h2>Trigger Notifications</h2>
+          <button type="button" name="button" onclick="doNotify('<strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.', 'success')">Add Success Notification</button>
+          <button type="button" name="button" onclick="doNotify('<strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.', 'info')">Add Info Notification</button>
+          <button type="button" name="button" onclick="doNotify('<strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.', 'warning')">Add Warning Notification</button>
+          <button type="button" name="button" onclick="doNotify('<strong><em>Lorem ipsum</em></strong> dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.', 'error')">Add Error Notification</button>
+          <section>
+            <fieldset>
+              <legend>Customization</legend>
+              <label>
+                <input type="checkbox" name="customize">Enable Customizations
+              </label>
+              <style class="from">
+                eh-notification.customized {
+                  --animation-time: 4s;
+                  --error-background-color: 0 185 15;
+                  --info-background-color: 224 200 155;
+                  --notification-font-size: 2rem;
+                  --notification-margin: 100px;
+                  --panel-border-radius: 15px;
+                  --panel-font-size: 1.5em;
+                  --panel-width: 33%;
+                  --success-background-color: 61 53 37;
+                  --warn-background-color: 255 64 64;
+                }
+              </style>
+              <pre class="to"></pre>
+            </fieldset>
+          </section>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.addEventListener('change', (e) => {
+        if (e.target.matches('input')) {
+          let attrs = ['class="from"']
+          if (document.querySelector('input[name=customize]').checked) {
+            console.log("customize is checked")
+            attrs = ['class="from customized"']
+          }
+          attrs.push(document.querySelector('input[name=position]:checked').value)
+          attrs.push(document.querySelector('input[name=animation]:checked').value)
+          if (document.querySelector('input[name=canclose]').checked) {
+            attrs.push("canclose")
+          }
+          if (parseInt(document.querySelector('input[name=autoclose]').value)) {
+            attrs.push(`autoclose="${document.querySelector('input[name=autoclose]').value}"`)
+          }
+          document.querySelector('#demo').innerHTML = `<eh-notification ${attrs.join(' ')} ></eh-notification>`
+          showSources()
+        }
+      })
+      function doNotify(message, type) {
+        document.querySelector('eh-notification').add(message, type)
+      }
+      showSources()
+    </script>
+  </body>
+</html>
