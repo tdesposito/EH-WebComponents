@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EH-WebComponents &lt;eh-inline-edit&gt; Demo</title>
+    <link rel="stylesheet" href="demo.css">
+    <!-- <script src="https://cdn.jsdelivr.net/gh/tdesposito/eh-webcomponents/dist/eh-inline-edit.min.js"></script> -->
+    <script src="/src/eh-inline-edit.js"></script>
+    <script src="./demo.js" charset="utf-8"></script>
+    <style media="screen">
+      div.col {
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>&lt;eh-inline-edit&gt; Demo</h1>
+    </header>
+    <main>
+      <section class="row" name="default">
+        <div class="col">
+          <h2>Default editors</h2>
+          <p class="from">
+            <label>What's your favorite food?:
+              <eh-inline-edit name="food" value="Pizza" onchange="onChange(this)"></eh-inline-edit>
+            </label>
+            <br>
+            <label>How many do you want?:
+              <eh-inline-edit name="qty" type="number" min="1" max="20" value="10" onchange="onChange(this)"></eh-inline-edit>
+            </label>
+            <br>
+            <label>When do you want them?:
+              <eh-inline-edit name="when" type="date" value="2022-01-01" onchange="onChange(this)"></eh-inline-edit>
+            </label>
+          </p>
+          <fieldset>
+            <legend>This is updated via the <code>onchange</code> attribute.</legend>
+            <span id="message"></span>
+          </fieldset>
+          <fieldset>
+            <legend>This is updated via <code>document.addEventListener</code></legend>
+            <span id="listener"></span>
+          </fieldset>
+        </div>
+        <pre class="to"></pre>
+      </section>
+      <section class="row" name="custombuttons">
+        <div class="col">
+          <h2>Editor with Customized buttons</h2>
+          <label>What's your favorite color?: </label>
+          <eh-inline-edit name="color" value="Pizza" class="from custombutton">
+            <style media="screen">
+              .custombutton button {
+                background-color: black;
+                border-radius: 8px;
+                box-shadow: none;
+                font-size: 0.8em;
+                margin: 5px;
+                padding: 5px;
+                transform: translateY(-7px);
+                transition: none;
+              }
+            </style>
+          <span slot="edit-button"><button>edit</button></span>
+          <span slot="update-button"><button>update</button></span>
+          <span slot="cancel-button"><button>cancel</button></span>
+          </eh-inline-edit>
+        </div>
+        <pre class="to"></pre>
+      </section>
+      <section class="row" name="styled">
+        <style media="screen" class="from">
+          eh-inline-edit.styled {
+            --button-color: 0 215 15;
+            --cancel-button-color: 255 0 0;
+            --editor-background-color: 100 100 100;
+            --editor-border: solid 2px violet;
+            --editor-border-radius: 10px;
+            --editor-height: 3em;
+            --editor-padding: 5px 1em 5px 1em;
+            --editor-width: 27em;
+            --input-color: 0 15 215;
+            --input-font-family: serif;
+            --input-font-size: 1.5rem;
+            --input-font-weight: 200;
+            --label-color: 0 215 15;
+            --label-font-family: serif;
+            --label-font-size: 1.5rem;
+            --label-font-weight: 200;
+          }
+        </style>
+        <div class="col">
+          <h2>Editor with customized styles</h2>
+          <label>What's your favorite programming language?: </label>
+          <eh-inline-edit name="language" value="Pizza" class="styled"></eh-inline-edit>
+        </div>
+        <pre class="to"></pre>
+      </section>
+    </main>
+    <script>
+      showSources()
+      function onChange(e) {
+        document.getElementById('message').innerText = `You entered '${e.value}'`
+      }
+      document.addEventListener('change', e => {
+        if (e.target.onchange) {
+          document.getElementById('listener').innerText = `You entered '${e.target.value}'`
+        }
+      })
+    </script>
+  </body>
+</html>
