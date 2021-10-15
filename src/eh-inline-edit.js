@@ -34,6 +34,7 @@ window.customElements.define('eh-inline-edit',
     }
 
     connectedCallback () {
+      const itype = this.type
       const value = this.value || ""
       const readonly = this.hasAttribute('readonly')
 
@@ -46,6 +47,7 @@ window.customElements.define('eh-inline-edit',
          attrs.push(`${attr}="${this.getAttribute(attr)}"`)
        }
       })
+      attr = attrs.join(' ')
 
       this.shadowRoot.innerHTML = `<!-- ##HTML -->
         <style>
@@ -108,7 +110,7 @@ window.customElements.define('eh-inline-edit',
             <slot name="edit-button" class="button edit"><sup>✎</sup></slot>
           </div>
           <div class="editor">
-            <input type="${this.type}" ${attrs.join(' ')}/>
+            <input type="${type}" ${attrs}/>
             <slot name="update-button" class="button update">✔</slot>
             <slot name="cancel-button" class="button cancel">ⓧ</slot>
           </div>
