@@ -2,7 +2,7 @@ const { execSync } = require('child_process')
 const fs = require('fs')
 const glob = require('glob')
 
-function doExec(cmd) {
+function run(cmd) {
   console.log(`Running '${cmd}'...`)
   execSync(cmd, {stdio: 'inherit'})
 }
@@ -20,18 +20,18 @@ glob("+(build|bundle)/*.min.js", (err, files) => {
 })
 
 // git add and git commit the dist files
-doExec('git add dist/*')
-doExec('git commit -m "update dist files"')
+run('git add dist/*')
+run('git commit -m "update dist files"')
 
 // update and commit the changelog
-doExec('git-changelog . -o CHANGELOG.md')
-doExec('git add CHANGELOG.md')
-doExec('git commit -m "update changelog"')
-doExec('npm version minor')
-doExec('git add package.json')
+run('git-changelog . -o CHANGELOG.md')
+run('git add CHANGELOG.md')
+run('git commit -m "update changelog"')
+run('npm version minor')
+run('git add package.json')
 
 let pkg = require('./package.json')
-doExec(`git commit -m "bump version to ${pkg.version}"`)
-doExec(`git tag v${pkg.version}`)
-doExec('git push')
-doExec('git push --tags')
+run(`git commit -m "bump version to ${pkg.version}"`)
+run(`git tag v${pkg.version}`)
+run('git push')
+run('git push --tags')
