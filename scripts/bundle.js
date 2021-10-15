@@ -18,7 +18,6 @@ if (! fs.existsSync('build')) {
   if (included.length) {
     target = "ehcomponents-custom-bundle"
   }
-  target += `-${config.version}`
   var bundle = fs.createWriteStream(`bundle/${target}.min.js`)
   bundle.write(PREAMBLE)
 

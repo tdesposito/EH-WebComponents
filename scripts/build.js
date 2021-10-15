@@ -17,7 +17,7 @@ if (! fs.existsSync('build')) { fs.mkdirSync('build') }
 glob("src/*.js", (err, files) => {
   files.map(async (f) => {
     let content = fs.readFileSync(f).toString()
-    let target = f.replace("src/", "build/").replace(".js", `-${config.version}.min.js`)
+    let target = f.replace("src/", "build/").replace(".js", ".min.js")
     console.log(`Processing ${f} into ${target}`)
     //  find the HTML block (look for <!-- ##HTML --> and <!-- ##/HTML -->)
     let htmlstart = content.search(HTML_START_TAG), htmlend = content.search(HTML_END_TAG)
