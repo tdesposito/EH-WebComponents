@@ -1,10 +1,25 @@
-#### 1.1.0 (2021-09-29)
-
 # Changelog
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## [v1.2.0](https://github.com/tdesposito/EH-WebComponents/releases/tag/v1.2.0) - 2021-10-15
+
+<small>[Compare with v1.1.0](https://github.com/tdesposito/EH-WebComponents/compare/v1.1.0...v1.2.0)</small>
+
+### Added
+- Add eh-inline-edit ([3d4e5c7](https://github.com/tdesposito/EH-WebComponents/commit/3d4e5c75443d8cc85e1d129f65f0e69fb5cfdc1a) by Todd Esposito).
+- Add eh-notification ([4f95c13](https://github.com/tdesposito/EH-WebComponents/commit/4f95c1355c56bf347c2ca7a11e6834209a8ccb69) by Todd Esposito).
+- Add eh-toggle component ([0733a03](https://github.com/tdesposito/EH-WebComponents/commit/0733a03a39220ad018282632f42fdbba56dec541) by Todd Esposito).
+
+### Fixed
+- Fix "onchange" handling ([07c61d1](https://github.com/tdesposito/EH-WebComponents/commit/07c61d1a3637b0dbdcdc46f347a2777cbbd1627b) by Todd Esposito).
+- Fix css ordering for content-in-disabled ([52f9c23](https://github.com/tdesposito/EH-WebComponents/commit/52f9c2398366eded07788c30f97770a58f9e62eb) by Todd Esposito).
+
+### Removed
+- Remove obsolete "-{version}" from build/bundle process ([85c3031](https://github.com/tdesposito/EH-WebComponents/commit/85c303196e51b7e43e95e6820607e19ed785ca49) by Todd Esposito).
+
 
 ## [v1.1.0](https://github.com/tdesposito/EH-WebComponents/releases/tag/v1.1.0) - 2021-09-15
 
